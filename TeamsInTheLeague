@@ -1,0 +1,125 @@
+package LeagueTable;
+
+/**
+ * Represents a Team
+ * @author Mick
+ */
+public class Team {
+
+	// private member vars
+	private String name;
+	private int gamesPlayed;
+	private int goalsFor;
+	private int goalsAgainst;
+	private int wins;
+	private int draws;
+	private int losses;
+	
+	/**
+	 * Constructor - default
+	 * @param name
+	 */
+	public Team(String name){
+		
+		this.setName(name);
+		
+		// initialise all to zero
+		gamesPlayed=0;
+		goalsFor=0;
+		goalsAgainst=0;
+		wins=0;
+		draws=0;
+		losses=0;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getGamesPlayed() {
+		return gamesPlayed;
+	}
+	public void incrementGamesPlayed() {
+		this.gamesPlayed++;
+	}
+	public int getGoalsFor() {
+		return goalsFor;
+	}
+	public void increaseGoalsFor(int scored) {
+		this.goalsFor += scored;
+	}
+	public int getWins() {
+		return wins;
+	}
+	public void incrementWins() {
+		this.wins++;
+	}
+	public int getGoalsAgainst() {
+		return goalsAgainst;
+	}
+	public void increaseGoalsAgainst(int goalsConceeded) {
+		this.goalsAgainst += goalsConceeded;
+	}
+	
+	public int getDraws() {
+		return draws;
+	}
+	public void incrementDraws() {
+		this.draws++;
+	}
+	public int getLosses() {
+		return losses;
+	}
+	public void incrementLosses() {
+		this.losses++;
+	}
+	
+	/**
+	 * Calculates and returns the points total
+	 * @return
+	 */
+	public int pointsTotal(){
+		return this.getWins()*3 + this.getDraws();
+	}
+	
+	/**
+	 * Formats and then returns the stats for the team
+	 * @return
+	 */
+	public String stats(){
+		String newLine = "\n";
+		StringBuilder sb = new StringBuilder();
+		sb.append("Games played  : ");
+		sb.append(this.getGamesPlayed());
+		sb.append(newLine);
+		sb.append("Goals for     : ");
+		sb.append(this.getGoalsFor());
+		sb.append(newLine);
+		sb.append("Goals against : ");
+		sb.append(this.getGoalsAgainst());
+		sb.append(newLine);
+		sb.append("Wins          : ");
+		sb.append(this.getWins());
+		sb.append(newLine);
+		sb.append("Draws         : ");
+		sb.append(this.getDraws());
+		sb.append(newLine);
+		sb.append("Losses        : ");
+		sb.append(this.getLosses());
+		sb.append(newLine);
+		sb.append("Points        : ");
+		sb.append(this.pointsTotal());
+		sb.append(newLine);
+		
+		
+		return sb.toString();
+	}
+
+	
+	
+}
